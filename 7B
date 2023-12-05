@@ -55,8 +55,8 @@ public void mainEratosthenas (String[] args) {
             if (num2.get(i)+num.get(i) < 10){
                 list.add(num.get(i) + num2.get(i));
             } else {
-                String x = Integer.toString(num.get(i) + num2.get(i));
-                int first = Integer.parseInt(x.substring(x.length()-1));
+                String n = Integer.toString(num.get(i) + num2.get(i));
+                int first = Integer.parseInt(n.substring(n.length()-1));
                 list.set(i-1, list.get(i-1)+1);
                 list.add(first);
             }
