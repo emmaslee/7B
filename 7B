@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+
+/**
+ * Write a description of class main here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class main {
+    
+   
+    public ArrayList<Integer> sieveOfEratosthenas(int n){
+    ArrayList<Integer> arr = new ArrayList();
+    int start = 2;
+    for(int i = start; i <= n; i++){
+        arr.add(i);
+    }
+    for(int i = 0; i < arr.size(); i++){
+        for (int j = i+1; j < arr.size(); j++){
+        if(arr.get(j)%arr.get(i) == 0){
+         arr.remove(j);
+         j--;
+        }
+    } 
+    }
+    return arr;
+}
+public void mainEratosthenas (String[] args) {
+        ArrayList<Integer> sieveOfEratosthenas100 = sieveOfEratosthenas(100);
+        System.out.println(sieveOfEratosthenas100);
+    }
+
+    public static void Goldbach (ArrayList<Integer> arr, int n){
+        for (int i = 0; i < arr.size(); i++) {
+            for (int j = i; j < arr.size(); j++) {
+                if ((arr.get(i) + arr.get(j)) == n){
+                    System.out.println("set: " + arr.get(i) + " " + arr.get(j));
+                }
+            }
+        }
+    }
+        public static ArrayList<Integer> bigInt (ArrayList<Integer> num, ArrayList<Integer> num2){
+
+        if (num.size() > num2.size()){
+            for (int i = num2.size(); i < num.size(); i++){
+                num2.add(0, 0);
+            }
+        } else if (num.size() < num2.size()){
+            for (int i = num.size(); i < num2.size(); i++){
+                num.add(0, 0);
+            }
+        }
+        ArrayList<Integer> list = new ArrayList();
+        for (int i = 0; i < num.size(); i++){
+            if (num2.get(i)+num.get(i) < 10){
+                list.add(num.get(i) + num2.get(i));
+            } else {
+                String x = Integer.toString(num.get(i) + num2.get(i));
+                int first = Integer.parseInt(x.substring(x.length()-1));
+                list.set(i-1, list.get(i-1)+1);
+                list.add(first);
+            }
+        }
+        
+        return list;
+    }
+
+
+    
+}
